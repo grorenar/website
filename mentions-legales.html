@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentions légales — Cap Sur Le Cockpit</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/nav-footer.css">
+  <style>
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      padding-top: calc(4rem + 70px);
+      padding-bottom: 4rem;
+    }
+
+    /* ─── LEGAL LAYOUT ─── */
+    .legal-wrapper {
+      max-width: 780px;
+    }
+
+    .legal-block {
+      padding: 2rem 0;
+      border-bottom: 0.5px solid var(--border-light);
+    }
+    .legal-block:last-child {
+      border-bottom: none;
+    }
+
+    .legal-code {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .legal-code::before {
+      content: '';
+      display: block;
+      width: 1rem;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .legal-block h2 {
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+
+    .legal-block p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: #3a3530;
+      line-height: 1.85;
+      margin-bottom: 0.75rem;
+    }
+    .legal-block p:last-child { margin-bottom: 0; }
+
+    .legal-block strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .legal-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0.5rem 1.5rem;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: #3a3530;
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+    .legal-row dt {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 0.15rem;
+    }
+    .legal-row dd { margin: 0; }
+
+    .legal-link {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 0.5px solid rgba(212,134,74,0.35);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .legal-link:hover {
+      color: var(--accent-light);
+      border-color: var(--accent-light);
+    }
+
+    @media (max-width: 600px) {
+      .legal-row {
+        grid-template-columns: 1fr;
+        gap: 0.15rem;
+      }
+      .legal-row dt { padding-top: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero bg-dark">
+      <div class="inner">
+        <p class="section-tag">Transparence</p>
+        <h1 class="section-title light">Mentions<br>légales</h1>
+        <p style="color:rgba(255,255,255,0.45);max-width:480px;margin-top:1rem;font-size:0.9rem;font-weight:300;line-height:1.7;">
+          Informations légales, éditoriales et de responsabilité relatives au site capsurlecockpit.fr.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTENU -->
+    <section>
+      <div class="inner">
+        <div class="legal-wrapper">
+
+          <!-- 1. Éditeur -->
+          <div class="legal-block">
+            <p class="legal-code">Art. 01</p>
+            <h2>Éditeur du site</h2>
+            <dl>
+              <div class="legal-row"><dt>Nom</dt><dd><strong>Thomas Boualit</strong></dd></div>
+              <div class="legal-row"><dt>Statut</dt><dd>Auto-entrepreneur</dd></div>
+              <div class="legal-row"><dt>Activité</dt><dd>Création de contenu — conseil et soutien pédagogique en aviation</dd></div>
+              <div class="legal-row"><dt>Contact</dt><dd><a class="legal-link" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#104;&#111;&#109;&#97;&#115;&#64;&#99;&#97;&#112;&#115;&#117;&#114;&#108;&#101;&#99;&#111;&#99;&#107;&#112;&#105;&#116;&#46;&#102;&#114;">&#116;&#104;&#111;&#109;&#97;&#115;&#64;&#99;&#97;&#112;&#115;&#117;&#114;&#108;&#101;&#99;&#111;&#99;&#107;&#112;&#105;&#116;&#46;&#102;&#114;</a></dd></div>
+            </dl>
+          </div>
+
+          <!-- 2. Hébergement -->
+          <div class="legal-block">
+            <p class="legal-code">Art. 02</p>
+            <h2>Hébergement</h2>
+            <dl>
+              <div class="legal-row"><dt>Hébergeur</dt><dd><strong>GitHub, Inc.</strong></dd></div>
+              <div class="legal-row"><dt>Service</dt><dd>GitHub Pages</dd></div>
+              <div class="legal-row"><dt>Adresse</dt><dd>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107 — États-Unis</dd></div>
+              <div class="legal-row"><dt>Site</dt><dd><a class="legal-link" href="https://pages.github.com" target="_blank" rel="noopener">pages.github.com</a></dd></div>
+            </dl>
+          </div>
+
+          <!-- 3. Propriété intellectuelle -->
+          <div class="legal-block">
+            <p class="legal-code">Art. 03</p>
+            <h2>Propriété intellectuelle</h2>
+            <p>L'ensemble des contenus présents sur ce site — textes, visuels, illustrations, structure graphique — est la propriété exclusive de Thomas Boualit, sauf mention contraire explicite.</p>
+            <p>Toute reproduction, représentation, modification ou exploitation, totale ou partielle, par quelque procédé que ce soit, sans autorisation écrite préalable, est strictement interdite et constitue une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
+          </div>
+
+          <!-- 4. Responsabilité éditoriale -->
+          <div class="legal-block">
+            <p class="legal-code">Art. 04</p>
+            <h2>Responsabilité éditoriale</h2>
+            <p>Les contenus publiés sur ce site — articles, vidéos, outils de calcul, supports pédagogiques — sont produits à titre informatif et dans un cadre de partage d'expérience personnelle.</p>
+            <p><strong>Ils ne constituent en aucun cas un enseignement agréé</strong> au sens de la réglementation EASA, et ne se substituent pas à une formation dispensée par une ATO (Approved Training Organisation) ou DTO (Declared Training Organisation).</p>
+            <p>L'auteur ne saurait être tenu responsable de l'utilisation faite des informations publiées, ni des décisions prises sur leur seule base dans un contexte opérationnel de vol.</p>
+          </div>
+
+          <!-- 5. Données personnelles -->
+          <div class="legal-block">
+            <p class="legal-code">Art. 05</p>
+            <h2>Données personnelles</h2>
+            <p>Ce site est un site statique qui ne collecte aucune donnée personnelle par lui-même. Aucun cookie de traçage, aucun outil d'analytics tiers n'est déployé à ce jour.</p>
+            <p>Les données transmises via le formulaire de contact (nom, adresse e-mail, message) sont utilisées exclusivement dans le cadre de la réponse apportée et ne font l'objet d'aucune cession ni exploitation commerciale.</p>
+            <p>Conformément au Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679), vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit : <a class="legal-link" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#104;&#111;&#109;&#97;&#115;&#64;&#99;&#97;&#112;&#115;&#117;&#114;&#108;&#101;&#99;&#111;&#99;&#107;&#112;&#105;&#116;&#46;&#102;&#114;">&#116;&#104;&#111;&#109;&#97;&#115;&#64;&#99;&#97;&#112;&#115;&#117;&#114;&#108;&#101;&#99;&#111;&#99;&#107;&#112;&#105;&#116;&#46;&#102;&#114;</a>.</p>
+          </div>
+
+          <!-- 6. Liens externes -->
+          <div class="legal-block">
+            <p class="legal-code">Art. 06</p>
+            <h2>Liens hypertextes</h2>
+            <p>Ce site peut contenir des liens vers des ressources externes (DGAC, Eurocontrol, SIA, YouTube, etc.). Ces liens sont fournis à titre indicatif ; l'auteur n'exerce aucun contrôle sur les contenus tiers et décline toute responsabilité quant à leur disponibilité ou leur exactitude.</p>
+          </div>
+
+          <!-- 7. Droit applicable -->
+          <div class="legal-block">
+            <p class="legal-code">Art. 07</p>
+            <h2>Droit applicable</h2>
+            <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux compétents sont ceux du ressort du domicile de l'éditeur, sauf disposition légale contraire.</p>
+            <p style="color:var(--muted);font-size:0.8rem;">Dernière mise à jour : avril 2025</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <h2>Une question ?</h2>
+      <p>Pour toute demande relative à ces mentions légales ou à vos données personnelles, contactez-moi directement.</p>
+      <a href="/contact.html" class="btn-dark">Prendre contact</a>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="/components/loader.js"></script>
+
+</body>
+</html>
