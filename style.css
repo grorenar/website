@@ -1,0 +1,144 @@
+/* ============================================================
+   CAP SUR LE COCKPIT — style.css
+   Feuille de style commune à toutes les pages
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap');
+
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+img  { max-width: 100%; display: block; }
+
+/* ─── VARIABLES ─── */
+:root {
+  --sky:          #0a1628;
+  --sky-mid:      #112240;
+  --sky-light:    #1a3a6e;
+  --sand:         #f5f0e8;
+  --white:        #fafaf8;
+  --ink:          #0d0d0d;
+  --muted:        #6b6560;
+  --accent:       #d4864a;
+  --accent-light: #f0b07a;
+  --border:       rgba(255,255,255,0.08);
+  --border-light: rgba(13,13,13,0.1);
+
+  --font-title: 'Bebas Neue', sans-serif;
+  --font-body:  'DM Sans', sans-serif;
+  --font-mono:  'DM Mono', monospace;
+}
+
+/* ─── BASE ─── */
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+h1, h2, h3 { font-family: var(--font-title); letter-spacing: 0.04em; line-height: 1; }
+p { font-weight: 300; line-height: 1.8; }
+a { color: inherit; }
+
+/* ─── LAYOUT ─── */
+section  { padding: 6rem 3rem; }
+.inner   { max-width: 1100px; margin: 0 auto; }
+.grid-3  { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.grid-2  { display: grid; grid-template-columns: repeat(2,1fr); gap: 3rem; align-items: start; }
+.bg-sand { background: var(--sand); }
+.bg-dark { background: var(--sky); color: var(--white); }
+
+/* ─── SECTION TAG ─── */
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.section-tag::before {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ─── SECTION TITLE ─── */
+.section-title       { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--ink); margin-bottom: 1rem; }
+.section-title.light { color: var(--white); }
+
+/* ─── BOUTONS ─── */
+.btn-primary {
+  display: inline-block; padding: 0.9rem 2rem;
+  background: var(--accent); color: var(--white);
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  text-decoration: none; transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+.btn-ghost {
+  display: inline-block; padding: 0.9rem 2rem;
+  border: 0.5px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.7);
+  font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase;
+  text-decoration: none; transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent-light); }
+
+.btn-dark {
+  display: inline-block; padding: 1rem 2.5rem;
+  background: var(--sky); color: var(--white);
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none; transition: background 0.2s;
+}
+.btn-dark:hover { background: var(--sky-mid); }
+
+/* ─── CARDS ─── */
+.card {
+  border: 0.5px solid var(--border-light); padding: 1.75rem;
+  background: var(--white); transition: border-color 0.2s;
+}
+.card:hover { border-color: var(--accent); }
+
+.card-dark {
+  background: var(--sky-mid); padding: 2rem 1.75rem; transition: background 0.2s;
+}
+.card-dark:hover { background: var(--sky-light); }
+
+/* ─── BADGE ─── */
+.badge {
+  font-family: var(--font-mono); font-size: 0.6rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.3rem 0.6rem; background: rgba(13,13,13,0.05); color: var(--muted);
+}
+
+/* ─── NOTE / DISCLAIMER ─── */
+.note {
+  margin-top: 2rem; padding: 1.25rem 1.5rem;
+  border-left: 2px solid rgba(212,134,74,0.4);
+  background: rgba(212,134,74,0.06);
+}
+.note p          { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+.note p strong   { color: rgba(255,255,255,0.75); font-weight: 400; }
+.note.light p        { color: var(--muted); }
+.note.light p strong { color: var(--ink); }
+
+/* ─── CTA SECTION ─── */
+.cta-section          { background: var(--accent); padding: 5rem 3rem; text-align: center; }
+.cta-section h2       { font-family: var(--font-title); font-size: clamp(2rem,5vw,4rem); letter-spacing: 0.05em; color: var(--white); margin-bottom: 1rem; }
+.cta-section p        { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.7; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  section { padding: 4rem 1.5rem; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 600px) {
+  .btn-primary, .btn-ghost, .btn-dark { width: 100%; text-align: center; }
+}

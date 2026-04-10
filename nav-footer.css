@@ -1,0 +1,130 @@
+/* ============================================================
+   nav-footer.css — styles du header et du footer communs
+   Inclure APRÈS style.css dans chaque page
+   (ou fusionner dans style.css si on préfère un seul fichier)
+   ============================================================ */
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 3rem;
+  background: rgba(10, 22, 40, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--accent-light); }
+
+/* Burger mobile */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: rgba(255,255,255,0.7);
+  transition: opacity 0.2s;
+}
+
+/* Offset pour le contenu sous la nav fixe */
+main > section:first-child,
+main > .page-hero:first-child { padding-top: calc(6rem + 70px); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--sky);
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0.5px solid var(--border);
+}
+
+.footer-logo {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+}
+.footer-logo span { color: var(--accent); }
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.footer-links a {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--accent-light); }
+
+.footer-legal {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.05em;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 800px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-burger { display: flex; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: rgba(10,22,40,0.98);
+    padding: 1rem 0;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 0.75rem 2rem; }
+
+  footer {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
