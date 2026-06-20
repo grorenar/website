@@ -70,6 +70,19 @@
       .formule-arrow { display: none; }
     }
 
+    /* ─── CARTE "JE NE SAIS PAS" ─── */
+    .formule-unsure {
+      grid-template-columns: 70px 1fr auto;
+      background: transparent;
+      border-style: dashed;
+    }
+    .formule-unsure .formule-title { color: var(--muted); font-size: 1rem; }
+    .formule-unsure .formule-body { max-width: none; }
+    .formule-unsure:hover { border-color: var(--accent); box-shadow: none; }
+    @media (max-width: 800px) {
+      .formule-unsure { grid-template-columns: 1fr; }
+    }
+
     /* ─── DÉROULÉ ─── */
     .steps { counter-reset: step; }
     .step {
@@ -236,69 +249,75 @@
           <div class="formule-arrow">→</div>
         </div>
 
+        <div class="formule formule-unsure" role="button" tabindex="0" onclick="openModal('Je ne sais pas encore')" onkeydown="if(event.key==='Enter'){openModal('Je ne sais pas encore')}">
+          <div class="formule-number">?</div>
+          <div>
+            <h3 class="formule-title">Je ne sais pas encore ce qu'il me faut</h3>
+            <p class="formule-body">Pas de souci — explique-moi ta situation, on trouvera ensemble la formule adaptée.</p>
+          </div>
+          <div class="formule-arrow">→</div>
+        </div>
+
         <div class="note light">
           <p><strong>Note :</strong> Ces séances constituent un soutien pédagogique et méthodologique, et ne se substituent pas à une formation agréée au sein d'une ATO ou DTO. Je ne suis pas instructeur (FI).</p>
         </div>
       </div>
     </section>
 
-    <!-- DÉROULÉ -->
+    <!-- FAQ + DÉROULÉ -->
     <section class="bg-sand">
       <div class="inner grid-2">
         <div>
+          <p class="section-tag">Questions fréquentes</p>
+          <h2 class="section-title">FAQ</h2>
+          <div style="margin-top:2rem;">
+            <div class="faq-item">
+              <div class="faq-q">Est-ce que tu es instructeur (FI) ?</div>
+              <div class="faq-a">Non. Ce coaching est un soutien méthodologique basé sur mon propre parcours et ma propre préparation à l'ATPL théorique. Il ne remplace pas une formation agréée en ATO/DTO.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">Sur quelle plateforme se font les séances ?</div>
+              <div class="faq-a">En visio (Google Meet ou équivalent), le lien est envoyé après confirmation du rendez-vous.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">Je débute en PPL, c'est adapté ?</div>
+              <div class="faq-a">Oui, la formule "Bilan et méthode" est justement pensée pour poser les bases, que tu démarres le PPL ou que tu vises l'ATPL théorique.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">Comment se passe le paiement ?</div>
+              <div class="faq-a">Les modalités te sont communiquées par email après ta demande, une fois la formule et le créneau confirmés.</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
           <p class="section-tag">Comment ça marche</p>
           <h2 class="section-title">Le déroulé</h2>
-          <p style="color:var(--muted);font-weight:300;max-width:480px;margin-top:1rem;">
+          <p style="color:var(--muted);font-weight:300;max-width:480px;margin-top:1rem;margin-bottom:2rem;">
             De la prise de contact à la séance, un processus simple et sans engagement.
           </p>
-        </div>
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">01</div>
-            <div>
-              <div class="step-title">Tu choisis une formule</div>
-              <div class="step-body">Clique sur la carte correspondante et remplis le formulaire avec ton besoin.</div>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">01</div>
+              <div>
+                <div class="step-title">Tu choisis une formule</div>
+                <div class="step-body">Clique sur la carte correspondante et remplis le formulaire avec ton besoin.</div>
+              </div>
             </div>
-          </div>
-          <div class="step">
-            <div class="step-num">02</div>
-            <div>
-              <div class="step-title">On échange par email</div>
-              <div class="step-body">Confirmation du créneau, des modalités et du tarif selon ta situation.</div>
+            <div class="step">
+              <div class="step-num">02</div>
+              <div>
+                <div class="step-title">On échange par email</div>
+                <div class="step-body">Confirmation du créneau, des modalités et du tarif selon ta situation.</div>
+              </div>
             </div>
-          </div>
-          <div class="step">
-            <div class="step-num">03</div>
-            <div>
-              <div class="step-title">Séance en visio</div>
-              <div class="step-body">On travaille ensemble sur tes points de blocage, à ton rythme.</div>
+            <div class="step">
+              <div class="step-num">03</div>
+              <div>
+                <div class="step-title">Séance en visio</div>
+                <div class="step-body">On travaille ensemble sur tes points de blocage, à ton rythme.</div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section>
-      <div class="inner">
-        <p class="section-tag">Questions fréquentes</p>
-        <h2 class="section-title">FAQ</h2>
-        <div style="margin-top:2.5rem;">
-          <div class="faq-item">
-            <div class="faq-q">Est-ce que tu es instructeur (FI) ?</div>
-            <div class="faq-a">Non. Ce coaching est un soutien méthodologique basé sur mon propre parcours et ma propre préparation à l'ATPL théorique. Il ne remplace pas une formation agréée en ATO/DTO.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Sur quelle plateforme se font les séances ?</div>
-            <div class="faq-a">En visio (Google Meet ou équivalent), le lien est envoyé après confirmation du rendez-vous.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Je débute en PPL, c'est adapté ?</div>
-            <div class="faq-a">Oui, la formule "Bilan et méthode" est justement pensée pour poser les bases, que tu démarres le PPL ou que tu vises l'ATPL théorique.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Comment se passe le paiement ?</div>
-            <div class="faq-a">Les modalités te sont communiquées par email après ta demande, une fois la formule et le créneau confirmés.</div>
           </div>
         </div>
       </div>
