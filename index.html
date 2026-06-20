@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cap Sur Le Cockpit — Thomas Boualit</title>
+  <meta name="description" content="Cap Sur Le Cockpit : l'aviation racontée de l'intérieur par Thomas Boualit, pilote PPL et ATPL théorique validé. Vidéos, outils et coaching pour candidats PPL et ATPL.">
+  <meta property="og:title" content="Cap Sur Le Cockpit — Thomas Boualit">
+  <meta property="og:description" content="L'aviation racontée de l'intérieur — du tour de piste au vol aux instruments. Contenu gratuit et coaching pour candidats PPL et ATPL.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://capsurlecockpit.fr/">
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/nav-footer.css">
   <style>
@@ -66,6 +71,13 @@
       padding: 1rem 1.25rem; background: var(--white); border-left: 2px solid var(--accent);
       margin-bottom: 1rem;
     }
+    .cred-item.cred-featured {
+      border-left-color: var(--ink);
+      background: var(--ink);
+    }
+    .cred-item.cred-featured .cred-code { color: var(--accent-light); }
+    .cred-item.cred-featured .cred-label { color: var(--white); }
+    .cred-item.cred-featured .cred-sub { color: rgba(255,255,255,0.5); }
     .cred-code { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--accent); min-width: 80px; }
     .cred-label { font-size: 0.85rem; font-weight: 400; color: var(--ink); }
     .cred-sub { font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; }
@@ -74,6 +86,14 @@
     .progress-pct { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); }
     .progress-bar { height: 3px; background: rgba(13,13,13,0.08); margin-bottom: 1.25rem; }
     .progress-fill { height: 100%; background: var(--accent); }
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em;
+      color: var(--ink); background: rgba(212,134,74,0.12);
+      border: 0.5px solid rgba(212,134,74,0.4);
+      padding: 0.4rem 0.75rem; margin-bottom: 1.25rem;
+    }
+    .status-badge::before { content: '✓'; color: var(--accent); font-weight: 700; }
 
     /* ─── COACHING ─── */
     .coaching-intro { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.6); max-width: 580px; line-height: 1.7; margin-bottom: 3.5rem; }
@@ -89,11 +109,13 @@
     .content-card-body { font-size: 0.82rem; font-weight: 300; color: var(--muted); line-height: 1.7; }
     .content-badge { position: absolute; top: 1.75rem; right: 1.75rem; }
     .card { position: relative; }
+    .card-link { display: block; text-decoration: none; }
 
     @media (max-width: 800px) {
       .hero { padding: 0 1.5rem 5rem; }
       .hero-stats { gap: 1.5rem; }
       .coaching-grid { grid-template-columns: 1fr; }
+      .content-badge { position: static; display: inline-block; margin-bottom: 0.75rem; }
     }
   </style>
 </head>
@@ -108,11 +130,11 @@
       <div class="hero-grid"></div>
       <div class="horizon-line"></div>
       <div class="hero-content">
-        <p class="hero-tag">Pilote · ATPL en cours</p>
+        <p class="hero-tag">Pilote PPL · ATPL théorique validé</p>
         <h1 class="hero-name">Thomas<span>Boualit</span></h1>
         <p class="hero-subtitle">
           Partage de l'aviation de l'intérieur — du tour de piste au vol aux instruments.
-          Soutien méthodologique pour candidats PPL théorique et ATPL théorique.
+          Vidéos, outils et retours d'expérience gratuits, avec un accompagnement individuel pour les candidats PPL et ATPL qui veulent aller plus loin.
         </p>
         <div class="hero-stats">
           <div>
@@ -121,7 +143,7 @@
           </div>
           <div>
             <div class="stat-num">ATPL</div>
-            <div class="stat-label">théorique en cours</div>
+            <div class="stat-label">théorique validé</div>
           </div>
           <div>
             <div class="stat-num">PPL</div>
@@ -129,8 +151,8 @@
           </div>
         </div>
         <div class="hero-ctas">
-          <a href="/coaching.html" class="btn-primary">Prendre rendez-vous</a>
-          <a href="/cours/index.html" class="btn-ghost">Voir le contenu gratuit</a>
+          <a href="/cours/index.html" class="btn-primary">Voir le contenu gratuit</a>
+          <a href="/coaching.html" class="btn-ghost">Prendre rendez-vous</a>
         </div>
       </div>
     </section>
@@ -140,31 +162,62 @@
       <div class="inner grid-2">
         <div class="about-text">
           <p class="section-tag">Parcours</p>
-          <h2 class="section-title">Cap sur <br>le cockpit</h2>
-          <p>Pilote par vocation. Titulaire d'un PPL(A) avec qualification SEP, je vole régulièrement en VFR au sein de l'Aéro-Club Robert Thiéry de Verdun, où je siège au Conseil d'Administration et où je suis membre du bureau.</p>
-          <p>Mon parcours s'inscrit dans une progression structurée vers les qualifications professionnelles : ATPL théorique en cours, et acquisition des différentes qualifications dans le cadre de mon parcours modulaire.</p>
+          <h2 class="section-title">De la tour<br>au cockpit</h2>
+          <p>ARM (Assistant de Régulation Médicale) de métier, pilote par vocation. Titulaire d'un PPL(A) avec qualification SEP, je vole régulièrement en VFR au sein de l'Aéro-Club Robert Thiéry de Verdun, où je siège au Conseil d'Administration.</p>
+          <p>Mon parcours s'inscrit dans une progression structurée vers les qualifications professionnelles : ATPL théorique validé, avec un intérêt particulier pour la météo aéronautique, la navigation et la préparation de vol.</p>
           <p>Cap Sur Le Cockpit est né du constat simple que l'aviation manque de passeurs — des gens qui documentent leur propre apprentissage, sans prétention d'enseignement, juste le vécu.</p>
         </div>
         <div>
           <p style="font-family:var(--font-title);font-size:1rem;letter-spacing:0.1em;color:var(--muted);margin-bottom:1.25rem;">Progression</p>
+
+          <div class="status-badge">ATPL théorique validé</div>
+
           <div class="progress-block">
-            <div class="progress-label"><span class="progress-name">Heures de vol VFR (mûrissement en cours)</span><span class="progress-pct">103 h</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="width:51.5%"></div></div>
-          </div>
-          <div class="progress-block">
-            <div class="progress-label"><span class="progress-name">ATPL théorique</span><span class="progress-pct">en cours</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="width:78.57%"></div></div>
+            <div class="progress-label"><span class="progress-name">Heures de vol VFR</span><span class="progress-pct">103 h</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:34%"></div></div>
           </div>
           <div class="progress-block">
             <div class="progress-label"><span class="progress-name">Objectif IR / CPL</span><span class="progress-pct">horizon 2026–27</span></div>
             <div class="progress-bar"><div class="progress-fill" style="width:8%"></div></div>
           </div>
+
           <div style="margin-top:2rem;">
-            <div class="cred-item"><div><div class="cred-code">PPL(A)</div><div class="cred-label">Licence Pilote Privé Avion</div><div class="cred-sub">Qualification SEP · FCL.055 (niveau 5)</div></div></div>
-            <div class="cred-item"><div><div class="cred-code">ATPL</div><div class="cred-label">Théorique en préparation</div><div class="cred-sub">14 matières EASA</div></div></div>
-            <div class="cred-item"><div><div class="cred-code">C.A.</div><div class="cred-label">Conseil d'Administration</div><div class="cred-sub">Aéro-Club Robert Thiéry — Verdun</div></div></div>
-            <div class="cred-item"><div><div class="cred-code">Bureau</div><div class="cred-label">Membre du bureau</div><div class="cred-sub">Aéro-Club Robert Thiéry — Verdun</div></div></div>
+            <div class="cred-item cred-featured"><div><div class="cred-code">C.A.</div><div class="cred-label">Conseil d'Administration</div><div class="cred-sub">Aéro-Club Robert Thiéry — Verdun</div></div></div>
+            <div class="cred-item"><div><div class="cred-code">PPL(A)</div><div class="cred-label">Licence Pilote Privé Avion</div><div class="cred-sub">Qualification SEP · FCL.055 anglais aéro</div></div></div>
+            <div class="cred-item"><div><div class="cred-code">ATPL</div><div class="cred-label">Théorique validé</div><div class="cred-sub">14 matières EASA</div></div></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENU GRATUIT -->
+    <section>
+      <div class="inner">
+        <p class="section-tag">Ressources libres</p>
+        <h2 class="section-title">Le contenu<br>gratuit</h2>
+        <p style="font-size:1rem;font-weight:300;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:3rem;">Vidéos, articles et outils en accès libre. Pas de syllabus officiel — juste ce que j'ai appris, clarifié et mis en forme.</p>
+        <div class="grid-3">
+          <div class="card">
+            <span class="badge content-badge">YouTube · TikTok</span>
+            <p class="content-tag">Vidéo</p>
+            <h3 class="content-card-title">Comprendre la météo aéronautique</h3>
+            <p class="content-card-body">METAR, TAF, cartes TEMSI, givrage, turbulence — les notions clés expliquées avec des exemples réels.</p>
+          </div>
+          <div class="card">
+            <span class="badge content-badge">YouTube · TikTok</span>
+            <p class="content-tag">Vidéo</p>
+            <h3 class="content-card-title">Navigation : du QDM au RNAV</h3>
+            <p class="content-card-body">Radioguidage VOR/NDB, tables d'interpolation, cap compas vs vrai. Les erreurs classiques à l'ATPL.</p>
+          </div>
+          <div class="card">
+            <span class="badge content-badge">Accès libre</span>
+            <p class="content-tag">Outil</p>
+            <h3 class="content-card-title">Calculateur SR/SS (AIP GEN 2.7)</h3>
+            <p class="content-card-body">Calcul des heures de lever/coucher de soleil selon la méthodologie AIP France officielle.</p>
+          </div>
+        </div>
+        <div style="margin-top:2rem;">
+          <a href="/cours/index.html" class="btn-primary">Voir tout le contenu</a>
         </div>
       </div>
     </section>
@@ -174,7 +227,7 @@
       <div class="inner">
         <p class="section-tag">Soutien personnalisé</p>
         <h2 class="section-title light">Coaching<br>sur rendez-vous</h2>
-        <p class="coaching-intro">Accompagnement méthodologique individuel pour candidats PPL théorique et ATPL théorique. Séances en visio, adaptées à ton niveau et tes lacunes spécifiques.</p>
+        <p class="coaching-intro">Accompagnement méthodologique individuel pour candidats PPL et ATPL théorique. Séances en visio, adaptées à ton niveau et tes lacunes spécifiques.</p>
         <div class="coaching-grid">
           <div class="card-dark">
             <div class="card-number">01</div>
@@ -196,7 +249,7 @@
           </div>
         </div>
         <div class="note">
-          <p><strong>Note :</strong> Ces séances constituent un soutien pédagogique et méthodologique, et ne se substituent pas à une formation agréée au sein d'un ATO ou d'un DTO. Je ne suis pas FI.</p>
+          <p><strong>Note :</strong> Ces séances constituent un soutien pédagogique et méthodologique, et ne se substituent pas à une formation agréée au sein d'une ATO ou DTO. Je ne suis pas FI.</p>
         </div>
         <div style="margin-top:2rem;">
           <a href="/coaching.html" class="btn-primary">En savoir plus</a>
@@ -204,42 +257,10 @@
       </div>
     </section>
 
-    <!-- CONTENU GRATUIT -->
-    <section>
-      <div class="inner">
-        <p class="section-tag">Ressources libres</p>
-        <h2 class="section-title">Le contenu<br>gratuit</h2>
-        <p style="font-size:1rem;font-weight:300;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:3rem;">Vidéos, articles et outils en accès libre. Pas des cours officiels — juste ce que j'ai appris, clarifié et mis en forme.</p>
-        <div class="grid-3">
-          <div class="card">
-            <span class="badge content-badge">YouTube</span>
-            <p class="content-tag">Vidéo</p>
-            <h3 class="content-card-title">Vidéo 1</h3>
-            <p class="content-card-body">Description vidéo 1</p>
-          </div>
-          <div class="card">
-            <span class="badge content-badge">YouTube</span>
-            <p class="content-tag">Vidéo</p>
-            <h3 class="content-card-title">Vidéo 2</h3>
-            <p class="content-card-body">Description vidéo 2</p>
-          </div>
-         <a href="/outils/srss.html" class="card" style="display:block;text-decoration:none;">
-  <span class="badge content-badge">Accès libre</span>
-  <p class="content-tag">Outil</p>
-  <h3 class="content-card-title">Calculateur SR/SS (AIP GEN 2.7)</h3>
-  <p class="content-card-body">Calcul des heures de lever/coucher de soleil selon la méthodologie AIP France officielle.</p>
-</a>
-        </div>
-        <div style="margin-top:2rem;">
-          <a href="/cours/index.html" class="btn-primary">Voir tout le contenu</a>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA -->
     <section class="cta-section">
       <h2>Prêt à décoller ?</h2>
-      <p>Une séance de coaching, une question sur l'ATPL, le PPL, ou juste envie d'échanger sur l'aviation — je réponds.</p>
+      <p>Une séance de coaching, une question sur l'ATPL, ou juste envie d'échanger sur l'aviation — je réponds.</p>
       <a href="/contact.html" class="btn-dark">Prendre contact</a>
     </section>
 
