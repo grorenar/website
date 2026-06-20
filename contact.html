@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact — Cap Sur Le Cockpit</title>
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/nav-footer.css">
+
+  <style>
+    /* ─── CONTACT PAGE ─── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .form-field { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-field label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--white);
+      border: 0.5px solid var(--border-light);
+      padding: 0.85rem 1rem;
+      transition: border-color 0.2s;
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .form-field textarea { resize: vertical; min-height: 140px; }
+    .form-submit {
+      margin-top: 0.5rem;
+      align-self: flex-start;
+    }
+    .form-status {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: none;
+    }
+    .form-status.success { color: var(--accent); display: block; }
+    .form-status.error { color: #b5483a; display: block; }
+
+    /* ─── COACHING CALLOUT ─── */
+    .coaching-callout {
+      background: var(--sky-mid);
+      padding: 2rem 1.75rem;
+      color: var(--white);
+    }
+    .coaching-callout p.section-tag { color: var(--accent-light); }
+    .coaching-callout h3 {
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .coaching-callout p.body {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── CONTACT DIRECT ─── */
+    .direct-contact { margin-top: 2rem; }
+    .direct-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 0.5px solid var(--border-light);
+    }
+    .direct-item:last-child { border-bottom: none; }
+    .direct-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 90px;
+    }
+    .direct-value a {
+      font-size: 0.9rem;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+    }
+    .direct-value a:hover { color: var(--accent); }
+
+    @media (max-width: 800px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero bg-dark">
+      <div class="inner">
+        <p class="section-tag">Contact</p>
+        <h1 class="section-title light">Prendre contact</h1>
+        <p style="color:rgba(255,255,255,0.55);max-width:560px;margin-top:1rem;">
+          Une question, une demande de coaching, ou juste envie d'échanger sur l'aviation — je réponds.
+        </p>
+      </div>
+    </section>
+
+    <!-- FORMULAIRE + INFOS -->
+    <section>
+      <div class="inner contact-grid">
+
+        <!-- Formulaire -->
+        <div>
+          <p class="section-tag">Message</p>
+          <h2 class="section-title">Écris-moi</h2>
+          <p style="color:var(--muted);max-width:480px;margin-bottom:2rem;">
+            Réponse sous quelques jours. Pour une demande de coaching, précise ton niveau et ta disponibilité.
+          </p>
+
+          <form class="contact-form" action="https://formspree.io/f/xkoaddkw" method="POST" id="contact-form">
+            <div class="form-field">
+              <label for="name">Nom</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-field">
+              <label for="subject">Sujet</label>
+              <select id="subject" name="subject">
+                <option value="Question générale">Question générale</option>
+                <option value="Demande de coaching">Demande de coaching</option>
+                <option value="Partenariat / presse">Partenariat / presse</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <input type="text" name="_gotcha" style="display:none">
+            <button type="submit" class="btn-primary form-submit">Envoyer le message</button>
+            <p class="form-status" id="form-status"></p>
+          </form>
+        </div>
+
+        <!-- Colonne latérale : coaching + contact direct -->
+        <div>
+          <div class="coaching-callout">
+            <p class="section-tag">Rendez-vous</p>
+            <h3>Besoin d'un coaching ?</h3>
+            <p class="body">Bilan, suivi thématique ou préparation d'examen — découvre les formules et prends rendez-vous directement.</p>
+            <a href="/coaching.html" class="btn-primary">Voir le coaching</a>
+          </div>
+
+          <div class="direct-contact">
+            <div class="direct-item">
+              <span class="direct-label">LinkedIn</span>
+              <span class="direct-value"><a href="https://www.linkedin.com/in/thomasboualit" target="_blank">thomasboualit</a></span>
+            </div>
+            <div class="direct-item">
+              <span class="direct-label">Instagram</span>
+              <span class="direct-value"><a href="https://www.instagram.com/cap.sur.le.cockpit" target="_blank">@cap.sur.le.cockpit</a></span>
+            </div>
+            <div class="direct-item">
+              <span class="direct-label">TikTok</span>
+              <span class="direct-value"><a href="https://www.tiktok.com/@cap.sur.le.cockpit" target="_blank">@cap.sur.le.cockpit</a></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="/components/loader.js"></script>
+
+  <!-- Soumission AJAX du formulaire vers Formspree (reste sur la page, affiche un message) -->
+  <script>
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    const submitBtn = form.querySelector('.form-submit');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi en cours…';
+      status.className = 'form-status';
+      status.textContent = '';
+
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      fetch(form.action, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+        .then(response => response.json().then(body => ({ ok: response.ok, body })))
+        .then(({ ok, body }) => {
+          if (ok) {
+            status.textContent = 'Message envoyé — merci, je reviens vers toi rapidement.';
+            status.className = 'form-status success';
+            form.reset();
+          } else {
+            const detail = body && body.errors
+              ? body.errors.map(err => err.message).join(' ')
+              : "Une erreur s'est produite.";
+            status.textContent = detail + " Essaie à nouveau ou écris-moi directement via les réseaux.";
+            status.className = 'form-status error';
+          }
+        })
+        .catch(() => {
+          status.textContent = "Une erreur s'est produite. Essaie à nouveau ou écris-moi directement via les réseaux.";
+          status.className = 'form-status error';
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Envoyer le message';
+        });
+    });
+  </script>
+
+</body>
+</html>
