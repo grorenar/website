@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coaching ATPL & PPL — Cap Sur Le Cockpit</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/nav-footer.css">
+  <style>
+    /* ─── PAGE HERO ─── */
+    .page-hero .hero-meta {
+      display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .meta-item {
+      font-family: var(--font-mono); font-size: 0.7rem;
+      letter-spacing: 0.08em; color: rgba(255,255,255,0.45);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .meta-item::before { content:'—'; color: var(--accent); }
+
+    /* ─── FORMULES (détail) ─── */
+    .formule {
+      border: 0.5px solid var(--border-light);
+      background: var(--white);
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      margin-bottom: 1.5rem;
+    }
+    .formule-number {
+      font-family: var(--font-title); font-size: 3rem;
+      color: rgba(13,13,13,0.08); line-height: 1;
+    }
+    .formule-title { font-size: 1.3rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .formule-body { font-size: 0.9rem; font-weight: 300; color: var(--muted); line-height: 1.8; max-width: 520px; margin-bottom: 1rem; }
+    .formule-points { list-style: none; }
+    .formule-points li {
+      font-size: 0.82rem; color: #3a3530; padding-left: 1.1rem; position: relative; margin-bottom: 0.4rem;
+    }
+    .formule-points li::before {
+      content: ''; position: absolute; left: 0; top: 0.5rem;
+      width: 5px; height: 1px; background: var(--accent);
+    }
+    .formule-price {
+      text-align: right; white-space: nowrap;
+    }
+    .formule-amount {
+      font-family: var(--font-title); font-size: 2.2rem; color: var(--ink); line-height: 1;
+    }
+    .formule-unit {
+      font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); margin-top: 0.4rem;
+    }
+
+    @media (max-width: 800px) {
+      .formule { grid-template-columns: 1fr; gap: 1rem; }
+      .formule-price { text-align: left; }
+    }
+
+    /* ─── DÉROULÉ ─── */
+    .steps { counter-reset: step; }
+    .step {
+      display: flex; gap: 1.5rem; padding: 1.5rem 0;
+      border-bottom: 0.5px solid var(--border-light);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent);
+      min-width: 2rem;
+    }
+    .step-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.3rem; }
+    .step-body { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.7; max-width: 500px; }
+
+    /* ─── FAQ ─── */
+    .faq-item { border-bottom: 0.5px solid var(--border-light); padding: 1.5rem 0; }
+    .faq-item:first-child { border-top: 0.5px solid var(--border-light); }
+    .faq-q { font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 0.6rem; }
+    .faq-a { font-size: 0.85rem; font-weight: 300; color: var(--muted); line-height: 1.7; max-width: 600px; }
+
+    /* ─── FORMULAIRE ─── */
+    .form-wrap { max-width: 600px; }
+    .form-row { margin-bottom: 1.25rem; }
+    .form-row label {
+      display: block; font-family: var(--font-mono); font-size: 0.65rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      width: 100%; padding: 0.85rem 1rem;
+      background: var(--white); border: 0.5px solid var(--border-light);
+      font-family: var(--font-body); font-size: 0.9rem; color: var(--ink);
+      transition: border-color 0.2s;
+    }
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus { outline: none; border-color: var(--accent); }
+    .form-row textarea { resize: vertical; min-height: 120px; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .form-submit {
+      display: inline-block; padding: 0.9rem 2.5rem;
+      background: var(--ink); color: var(--white); border: none; cursor: pointer;
+      font-family: var(--font-body); font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--accent); }
+    .form-note { font-size: 0.75rem; color: var(--muted); margin-top: 1rem; line-height: 1.6; }
+
+    @media (max-width: 600px) {
+      .form-row-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero bg-dark">
+      <div class="inner">
+        <p class="section-tag">Soutien personnalisé</p>
+        <h1 class="section-title light">Coaching<br>ATPL & PPL</h1>
+        <p style="color:rgba(255,255,255,0.55);max-width:560px;margin-top:1rem;font-weight:300;line-height:1.7;">
+          Accompagnement méthodologique individuel, en visio, pour candidats PPL et ATPL théorique.
+          Pas de remplissage de programme — juste l'aide ciblée dont tu as besoin, là où tu bloques.
+        </p>
+        <div class="hero-meta">
+          <span class="meta-item">Séances en visio</span>
+          <span class="meta-item">Sur rendez-vous</span>
+          <span class="meta-item">Soutien méthodologique, pas une ATO</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULES -->
+    <section>
+      <div class="inner">
+        <p class="section-tag">Formules</p>
+        <h2 class="section-title">Choisis ton<br>format</h2>
+        <p style="color:var(--muted);max-width:600px;margin-bottom:3rem;font-weight:300;">
+          Trois formats selon où tu en es dans ta préparation. Possibilité de combiner plusieurs séances selon tes besoins.
+        </p>
+
+        <div class="formule">
+          <div class="formule-number">01</div>
+          <div>
+            <h3 class="formule-title">Bilan et méthode</h3>
+            <p class="formule-body">Séance d'entrée pour faire le point sur ton niveau, identifier tes lacunes et structurer un planning de révisions réaliste.</p>
+            <ul class="formule-points">
+              <li>État des lieux de ta progression et de tes matières faibles</li>
+              <li>Plan de révision personnalisé (ATPL ou PPL)</li>
+              <li>Recommandation d'outils et de ressources adaptés</li>
+            </ul>
+          </div>
+          <div class="formule-price">
+            <div class="formule-amount">— €</div>
+            <div class="formule-unit">Séance unique · 1h</div>
+          </div>
+        </div>
+
+        <div class="formule">
+          <div class="formule-number">02</div>
+          <div>
+            <h3 class="formule-title">Suivi thématique</h3>
+            <p class="formule-body">Séances ciblées sur une matière précise : météo, navigation, radio-navigation, réglementation. Explication des notions complexes, QCM commentés, erreurs analysées en détail.</p>
+            <ul class="formule-points">
+              <li>Une matière par séance, au choix</li>
+              <li>QCM et exercices corrigés en direct</li>
+              <li>Renouvelable autant que nécessaire</li>
+            </ul>
+          </div>
+          <div class="formule-price">
+            <div class="formule-amount">— €</div>
+            <div class="formule-unit">À la séance · 1h</div>
+          </div>
+        </div>
+
+        <div class="formule">
+          <div class="formule-number">03</div>
+          <div>
+            <h3 class="formule-title">Préparation examen</h3>
+            <p class="formule-body">Sprint final avant les épreuves. Simulation de QCM en conditions réelles, gestion du temps, points de vigilance par matière, dernières révisions ciblées.</p>
+            <ul class="formule-points">
+              <li>3 séances réparties dans les semaines avant l'examen</li>
+              <li>Simulations chronométrées et débriefées</li>
+              <li>Plan de révision final matière par matière</li>
+            </ul>
+          </div>
+          <div class="formule-price">
+            <div class="formule-amount">— €</div>
+            <div class="formule-unit">Pack 3 séances</div>
+          </div>
+        </div>
+
+        <div class="note light">
+          <p><strong>Note :</strong> Ces séances constituent un soutien pédagogique et méthodologique, et ne se substituent pas à une formation agréée au sein d'une ATO ou DTO. Je ne suis pas instructeur (FI).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DÉROULÉ -->
+    <section class="bg-sand">
+      <div class="inner grid-2">
+        <div>
+          <p class="section-tag">Comment ça marche</p>
+          <h2 class="section-title">Le déroulé</h2>
+          <p style="color:var(--muted);font-weight:300;max-width:480px;margin-top:1rem;">
+            De la prise de contact à la séance, un processus simple et sans engagement.
+          </p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div>
+              <div class="step-title">Tu remplis le formulaire</div>
+              <div class="step-body">Décris ton niveau, ta formule souhaitée et tes disponibilités.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div>
+              <div class="step-title">On échange par email</div>
+              <div class="step-body">Confirmation du créneau, des modalités et du tarif selon ta situation.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div>
+              <div class="step-title">Séance en visio</div>
+              <div class="step-body">On travaille ensemble sur tes points de blocage, à ton rythme.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <div class="inner">
+        <p class="section-tag">Questions fréquentes</p>
+        <h2 class="section-title">FAQ</h2>
+        <div style="margin-top:2.5rem;">
+          <div class="faq-item">
+            <div class="faq-q">Est-ce que tu es instructeur (FI) ?</div>
+            <div class="faq-a">Non. Ce coaching est un soutien méthodologique basé sur mon propre parcours et ma propre préparation à l'ATPL théorique. Il ne remplace pas une formation agréée en ATO/DTO.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Sur quelle plateforme se font les séances ?</div>
+            <div class="faq-a">En visio (Google Meet ou équivalent), le lien est envoyé après confirmation du rendez-vous.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Je débute en PPL, c'est adapté ?</div>
+            <div class="faq-a">Oui, la formule "Bilan et méthode" est justement pensée pour poser les bases, que tu démarres le PPL ou que tu vises l'ATPL théorique.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Comment se passe le paiement ?</div>
+            <div class="faq-a">Les modalités te sont communiquées par email après ta demande, une fois la formule et le créneau confirmés.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULAIRE -->
+    <section class="bg-dark">
+      <div class="inner">
+        <p class="section-tag">Demande de rendez-vous</p>
+        <h2 class="section-title light">On en parle ?</h2>
+        <p style="color:rgba(255,255,255,0.55);max-width:560px;margin:1rem 0 3rem;font-weight:300;line-height:1.7;">
+          Remplis ce formulaire avec ton besoin, je te réponds par email sous quelques jours pour caler un créneau.
+        </p>
+
+        <form class="form-wrap" action="https://formspree.io/f/mvzneede" method="POST">
+          <div class="form-row-2">
+            <div class="form-row">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" required>
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="formule">Formule souhaitée</label>
+            <select id="formule" name="formule">
+              <option value="Bilan et méthode">Bilan et méthode</option>
+              <option value="Suivi thématique">Suivi thématique</option>
+              <option value="Préparation examen">Préparation examen</option>
+              <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="niveau">Niveau actuel</label>
+            <select id="niveau" name="niveau">
+              <option value="Pas encore commencé">Pas encore commencé</option>
+              <option value="PPL en cours">PPL en cours</option>
+              <option value="PPL obtenu">PPL obtenu</option>
+              <option value="ATPL théorique en cours">ATPL théorique en cours</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Ton besoin</label>
+            <textarea id="message" name="message" placeholder="Décris ta situation, tes disponibilités, tes questions..." required></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Envoyer la demande</button>
+          <p class="form-note">Tes informations ne servent qu'à te recontacter par email. Aucune donnée n'est partagée à des tiers.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="/components/loader.js"></script>
+
+</body>
+</html>
