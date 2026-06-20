@@ -15,18 +15,30 @@
     /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
-      background: var(--sky);
       position: relative;
       display: flex;
       align-items: flex-end;
       padding: 0 3rem 6rem;
       overflow: hidden;
     }
+    .hero-photo {
+      position: absolute; inset: 0;
+      background-image: url('/images/hero-cockpit.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      /* overlay renforcé car photo claire/lumineuse — assure la lisibilité du texte blanc */
+      background:
+        linear-gradient(180deg, rgba(10,22,40,0.65) 0%, rgba(10,22,40,0.55) 35%, rgba(10,22,40,0.88) 75%, rgba(10,22,40,0.97) 100%),
+        linear-gradient(90deg, rgba(10,22,40,0.5) 0%, rgba(10,22,40,0.15) 45%, rgba(10,22,40,0.15) 100%);
+    }
     .hero-grid {
       position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
       background-size: 60px 60px;
     }
     .horizon-line {
@@ -38,29 +50,33 @@
     .hero-tag {
       font-family: var(--font-mono); font-size: 0.7rem;
       letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 1.5rem;
+      color: var(--accent-light); margin-bottom: 1.5rem;
       display: flex; align-items: center; gap: 0.75rem;
+      text-shadow: 0 1px 8px rgba(10,22,40,0.6);
     }
-    .hero-tag::before { content:''; display:block; width:2rem; height:1px; background:var(--accent); }
+    .hero-tag::before { content:''; display:block; width:2rem; height:1px; background:var(--accent-light); }
     .hero-name {
       font-family: var(--font-title);
       font-size: clamp(3.5rem, 8vw, 7rem);
       line-height: 0.9; letter-spacing: 0.02em; color: var(--white); margin-bottom: 0.25rem;
+      text-shadow: 0 2px 24px rgba(10,22,40,0.5);
     }
     .hero-name span { color: var(--accent); display: block; }
     .hero-subtitle {
-      font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.55);
+      font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.8);
       margin: 1.5rem 0 2.5rem; line-height: 1.7; max-width: 500px;
+      text-shadow: 0 1px 12px rgba(10,22,40,0.5);
     }
     .hero-stats { display: flex; gap: 2.5rem; margin-bottom: 2.5rem; }
     .stat-num {
       font-family: var(--font-title); font-size: 2.2rem;
       color: var(--white); letter-spacing: 0.05em; line-height: 1;
+      text-shadow: 0 1px 12px rgba(10,22,40,0.5);
     }
     .stat-label {
       font-family: var(--font-mono); font-size: 0.65rem;
       letter-spacing: 0.15em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4); margin-top: 0.3rem;
+      color: rgba(255,255,255,0.65); margin-top: 0.3rem;
     }
     .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
 
@@ -109,13 +125,16 @@
     .content-card-body { font-size: 0.82rem; font-weight: 300; color: var(--muted); line-height: 1.7; }
     .content-badge { position: absolute; top: 1.75rem; right: 1.75rem; }
     .card { position: relative; }
-    .card-link { display: block; text-decoration: none; }
 
     @media (max-width: 800px) {
       .hero { padding: 0 1.5rem 5rem; }
       .hero-stats { gap: 1.5rem; }
       .coaching-grid { grid-template-columns: 1fr; }
       .content-badge { position: static; display: inline-block; margin-bottom: 0.75rem; }
+      .hero-overlay {
+        background:
+          linear-gradient(180deg, rgba(10,22,40,0.7) 0%, rgba(10,22,40,0.65) 35%, rgba(10,22,40,0.92) 75%, rgba(10,22,40,0.98) 100%);
+      }
     }
   </style>
 </head>
@@ -127,6 +146,8 @@
 
     <!-- HERO -->
     <section class="hero">
+      <div class="hero-photo"></div>
+      <div class="hero-overlay"></div>
       <div class="hero-grid"></div>
       <div class="horizon-line"></div>
       <div class="hero-content">
